@@ -23,12 +23,12 @@
 * DONE 07 Moc
   pozostawić liczbę [KM]
 
-* TODO 08 Skrzynia biegów
+* DONE 08 Skrzynia biegów
   factor: Automatyczna hydrauliczna (klasyczna), Automatyczna
   bezstopniowa (CVT), Automatyczna dwusprzęgłowa (DCT, DGS),
   Manualna, Półautomatyczna (ASG, Tiptronic)
 
-* TODO 09 Filtr cząstek stałych
+* DONE 09 Filtr cząstek stałych
   T/F
 
 * TODO 10 Uszkodzony

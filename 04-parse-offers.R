@@ -37,6 +37,9 @@ processOffer <- function(i, f, dt) {
   plv <- function(p) plist[[p]] %or% NA
   flv <- function(f) flist[[f]] %or% FALSE
 
+  tak2TRUE    <- function(b) ifelse(b == "Tak", TRUE, NA)
+  tak2logical <- function(b) ifelse(b == "Tak", TRUE, FALSE)
+
   set(dt, i = i, j = "Id"      , value = i)
   set(dt, i = i, j = "Brand"   , value = plv("Marka"))
   set(dt, i = i, j = "Model"   , value = plv("Model"))
@@ -46,6 +49,12 @@ processOffer <- function(i, f, dt) {
   set(dt, i = i, j = "FuelType", value = plv("Rodzaj paliwa"))
   set(dt, i = i, j = "Capacity", value = plv("Pojemność skokowa"))
   set(dt, i = i, j = "Horsepow", value = plv("Moc"))
+  set(dt, i = i, j = "Gearbox" , value = plv("Skrzynia biegów"))
+
+  # TODO: DPF może się pojawiać również w dodatkowych opisach oferty.
+  set(dt, i = i, j = "DPF", value = tak2TRUE(plv("Filtr cząstek stałych")))
+
+  set(dt, i = i, j = "Damaged", value = tak2TRUE(plv("Uszkodzony")))
 }
 
 processOffers <- function(otofiles) {
