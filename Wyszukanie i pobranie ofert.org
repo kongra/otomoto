@@ -1,0 +1,39 @@
+* Uruchomienie skryptu ściągającego URLe ofert
+  ./grabOfferURLs.R >> grab.log 2>&1 &
+
+* Oferty dla marki 'warszawa' omijać.
+  Otomoto wyświetla listę ofert innych aut, chyba jakiś bug po ich
+  stronie.
+
+* Emacs swobodnie obsługuje pliki o rozmiarach rzędu 25 MB (jak grab.log)
+  Nawigacja do końca pliku w Emacsie: Esc >
+
+* Usunięcie ofert z allegro (~ 28 tys.)
+  grep -v "http://allegro.pl" grab.log > grab1.log; mv grab1.log grab.log
+
+* Usunięcie komunikatów diagnostycznych
+  grep -v "GRABBING" grab.log > grab1.log; mv grab1.log grab.log
+
+* Usunięcie przedrostka [1] "
+  sed 's/^\[1\] "//' < grab.log > grab1.log; mv grab1.log grab.log
+
+* Usunięcie końcowego "
+  sed 's/"$//' < grab.log > grab1.log; mv grab1.log grab.log
+
+* Utworzenie pliku wynikowego z URL-ami ofert
+  mv grab.log offers.urls
+
+* Ściąganie ofert (wersja jednowątkowa)
+  ./downloadOffers.R >> logs/downloadOffers.log 2>&1 &
+
+* Pakujemy oferty
+  tar -cf offers.tar offers/
+
+* Kompresujemy oferty
+  gzip -c offers.tar | pv -r -b > offers.tar.gz
+
+* Rozkompresowanie ofert na lokalnym dysku
+  gunzip -c offers.tar.gz | pv -r -b > offers.tar
+
+* Rozpakowanie ofert
+  tar xf offers.tar

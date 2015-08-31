@@ -1,0 +1,342 @@
+# TWÓJ POJAZD
+* DONE 01 Marka
+  docelowo factor
+  ul class="params-list clr"
+
+* DONE 02 Model
+  docelowo factor
+
+* DONE 03 Rok produkcji
+  integer lub factor
+
+* DONE 04 Przebieg
+  pomyśleć o wstawieniu przedziałów lub pozostawić integer (km)
+
+# DANE TECHNICZNE
+* DONE 05 Rodzaj paliwa
+  factor: Benzyna, Benzyna+CNG, Benzyna+LPG, Diesel, Elektryczny,
+  Etanol, Hybryda, Wodór
+
+* DONE 06 Pojemność skokowa
+  docelowo rozważyć factor z poziomami lub pozostawić liczbę [cm3]
+
+* DONE 07 Moc
+  pozostawić liczbę [KM]
+
+* TODO 08 Skrzynia biegów
+  factor: Automatyczna hydrauliczna (klasyczna), Automatyczna
+  bezstopniowa (CVT), Automatyczna dwusprzęgłowa (DCT, DGS),
+  Manualna, Półautomatyczna (ASG, Tiptronic)
+
+* TODO 09 Filtr cząstek stałych
+  T/F
+
+* TODO 10 Uszkodzony
+  T/F
+
+# DANE SPRZEDAJĄCEGO
+* TODO 11 Imię
+
+* TODO 12 Email
+
+* TODO 13 Lokalizacja (miejscowość lub kod)
+  przeanalizować i zrobić dwie kolumny na miejscowość i na kod
+
+# CENA
+* TODO 14 Wartość
+
+* TODO 15 Jednostka
+  factor: PLN, EUR
+
+* TODO 16 Netto/Brutto
+  T/F
+
+* TODO 17 Do negocjacji
+  T/F
+
+* TODO 18 VAT marża
+  T/F
+
+* TODO 19 Faktura VAT
+  T/F
+
+* TODO 20 Możliwość finansowania
+  T/F
+
+* TODO 21 Leasing
+  T/F
+
+# HISTORIA
+* TODO 22 Kraj pochodzenia
+  docelowo factor
+
+* TODO 23 Miesiąc pierwszej rejestracji
+  docelowo factor
+
+* TODO 24 Rok pierwszej rejestracji
+  docelowo factor
+
+* TODO 25 VIN
+  rozpoznać, jaki to typ
+
+* TODO 26 Zarejestrowany w Polsce
+  T/F
+
+* TODO 27 Pierwszy właściciel
+  T/F
+
+* TODO 28 Bezwypadkowy
+  T/F
+
+* TODO 29 Serwisowany w ASO
+  T/F
+
+* TODO 30 Zarejestrowany jako zabytek
+  T/F
+
+* TODO 31 Tuning
+  T/F
+
+* TODO 32 Homologacja ciężarowa
+  T/F
+
+# NADWOZIE
+
+* TODO 33 Typ nadwozia
+  factor: Hatchback, Kabriolet, Kombi, Minivan, Pick-up,
+  Sedan/Limuzyna, Sportowy/Coupe, SUV, Terenowy, Van (minibus)
+
+* TODO 34 Liczba drzwi
+  docelowo factor
+
+* TODO 35 Kolor
+  docelowo factor
+
+* TODO 36 Liczba miejsc
+  docelowo factor
+
+* TODO 37 Metalik
+  T/F
+
+* TODO 38 Perłowy
+  T/F
+
+* TODO 39 Matowy
+  T/F
+
+* TODO 40 Kierownica po prawej (Anglik)
+  T/F
+
+* TODO 41 Akryl (niemetalizowany)
+  T/F
+
+# DODATKOWE WYPOSAŻENIE
+* TODO 42 ABS
+  T/F
+
+* TODO 43 Alarm
+  T/F
+
+* TODO 44 Alufelgi
+  T/F
+
+* TODO 45 ASR (kontrola trakcji)
+  T/F
+
+* TODO 46 Asystent parkowania
+  T/F
+
+* TODO 47 Asystent pasa ruchu
+  T/F
+
+* TODO 48 Bluetooth
+  T/F
+
+* TODO 49 CD
+  T/F
+
+* TODO 50 Centralny zamek
+  T/F
+
+* TODO 51 Czujnik deszczu
+  T/F
+
+* TODO 52 Czujnik martwego pola
+  T/F
+
+* TODO 53 Czujnik zmierzchu
+  T/F
+
+* TODO 54 Czujniki parkowania przednie
+  T/F
+
+* TODO 55 Czujniki parkowania tylne
+  T/F
+
+* TODO 56 Dach panoramiczny
+  T/F
+
+* TODO 57 Elektrochromatyczne lusterka boczne
+  T/F
+
+* TODO 58 Elektrochromatyczne lusterko wsteczne
+  T/F
+
+* TODO 59 Elektryczne szyby przednie
+  T/F
+
+* TODO 60 Elektryczne szyby tylne
+  T/F
+
+* TODO 61 Elektrycznie ustawiane fotele
+  T/F
+
+* TODO 62 Elektrycznie ustawiane lusterka
+  T/F
+
+* TODO 63 ESP (stabilizacja toru jazdy)
+  T/F
+
+* TODO 64 Gniazdo AUX
+  T/F
+
+* TODO 65 Gniazdo SD
+  T/F
+
+* TODO 66 Gniazdo USB
+  T/F
+
+* TODO 67 Hak
+  T/F
+
+* TODO 68 HUD (wyświetlacz przezierny)
+  T/F
+
+* TODO 69 Immobilizer
+  T/F
+
+* TODO 70 Isofix
+  T/F
+
+* TODO 71 Kamera cofania
+  T/F
+
+* TODO 72 Klimatyzacja automatyczna
+  T/F
+
+* TODO 73 Klimatyzacja czterostrefowa
+  T/F
+
+* TODO 74 Klimatyzacja dwustrefowa
+  T/F
+
+* TODO 75 Klimatyzacja manualna
+  T/F
+
+* TODO 76 Komputer pokładowy
+  T/F
+
+* TODO 77 Kurtyny powietrzne
+  T/F
+
+* TODO 78 Łopatki zmiany biegów
+  T/F
+
+* TODO 79 MP3
+  T/F
+
+* TODO 80 Nawigacja GPS
+  T/F
+
+* TODO 81 Odtwarzacz DVD
+  T/F
+
+* TODO 82 Ogranicznik prędkości
+  T/F
+
+* TODO 83 Ogrzewanie postojowe
+  T/F
+
+* TODO 84 Podgrzewana przednia szyba
+  T/F
+
+* TODO 85 Podgrzewane lusterka boczne
+  T/F
+
+* TODO 86 Podgrzewane przednie siedzenia
+  T/F
+
+* TODO 87 Podgrzewane tylne siedzenia
+  T/F
+
+* TODO 88 Poduszka powietrzna chroniąca kolana
+  T/F
+
+* TODO 89 Poduszka powietrzna kierowcy
+  T/F
+
+* TODO 90 Poduszka powietrzna pasażera
+  T/F
+
+* TODO 91 Poduszki boczne przednie
+  T/F
+
+* TODO 92 Poduszki boczne tylne
+  T/F
+
+* TODO 93 Przyciemniane szyby
+  T/F
+
+* TODO 94 Radio fabryczne
+  T/F
+
+* TODO 95 Radio niefabryczne
+  T/F
+
+* TODO 96 Regulowane zawieszenie
+  T/F
+
+* TODO 97 Relingi dachowe
+  T/F
+
+* TODO 98 System Start-Stop
+  T/F
+
+* TODO 99 Szyberdach
+  T/F
+
+* TODO 100 Światła do jazdy dziennej
+  T/F
+
+* TODO 101 Światła LED
+  T/F
+
+* TODO 102 Światła przeciwmgielne
+  T/F
+
+* TODO 103 Światła Xenonowe
+  T/F
+
+* TODO 104 Tapicerka skórzana
+  T/F
+
+* TODO 105 Tapicerka welurowa
+  T/F
+
+* TODO 106 Tempomat
+  T/F
+
+* TODO 107 Tempomat aktywny
+  T/F
+
+* TODO 108 Tuner TV
+  T/F
+
+* TODO 109 Wielofunkcyjna kierownica
+  T/F
+
+* TODO 110 Wspomaganie kierownicy
+  T/F
+
+* TODO 111 Zmieniarka CD
+  T/F
