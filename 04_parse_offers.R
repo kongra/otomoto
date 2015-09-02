@@ -5,7 +5,7 @@ library(data.table)
 library(XML)
 library(kongRa)
 
-source("03-raw-oto.R")
+source("03_raw_oto.R")
 
 plistMap <- function(doc) {
   plist <- xpathSApply(doc, "//ul[@class='params-list clr']/li")
@@ -29,8 +29,8 @@ flistMap <- function(doc) {
   m
 }
 
-processOffer <- function(i, f, dt) {
-  doc   <- htmlTreeParse(f, useInternalNodes = TRUE)
+processOffer <- function(i, file, oto) {
+  doc   <- htmlTreeParse(file, useInternalNodes = TRUE)
   plist <- plistMap(doc)
   flist <- flistMap(doc)
 
@@ -40,44 +40,44 @@ processOffer <- function(i, f, dt) {
   tak2TRUE    <- function(b) ifelse(b == "Tak", TRUE, NA)
   tak2logical <- function(b) ifelse(b == "Tak", TRUE, FALSE)
 
-  set(dt, i = i, j = "Id"      , value = i)
-  set(dt, i = i, j = "Brand"   , value = plv("Marka"))
-  set(dt, i = i, j = "Model"   , value = plv("Model"))
-  set(dt, i = i, j = "Version" , value = plv("Wersja"))
-  set(dt, i = i, j = "ProdYear", value = plv("Rok produkcji"))
-  set(dt, i = i, j = "Mileage" , value = plv("Przebieg"))
-  set(dt, i = i, j = "FuelType", value = plv("Rodzaj paliwa"))
-  set(dt, i = i, j = "Capacity", value = plv("Pojemność skokowa"))
-  set(dt, i = i, j = "Horsepow", value = plv("Moc"))
-  set(dt, i = i, j = "Gearbox" , value = plv("Skrzynia biegów"))
+  set(oto, i = i, j = "Id"      , value = i)
+  set(oto, i = i, j = "Brand"   , value = plv("Marka"))
+  set(oto, i = i, j = "Model"   , value = plv("Model"))
+  set(oto, i = i, j = "Version" , value = plv("Wersja"))
+  set(oto, i = i, j = "ProdYear", value = plv("Rok produkcji"))
+  set(oto, i = i, j = "Mileage" , value = plv("Przebieg"))
+  set(oto, i = i, j = "FuelType", value = plv("Rodzaj paliwa"))
+  set(oto, i = i, j = "Capacity", value = plv("Pojemność skokowa"))
+  set(oto, i = i, j = "Horsepow", value = plv("Moc"))
+  set(oto, i = i, j = "Gearbox" , value = plv("Skrzynia biegów"))
 
   # TODO: DPF może się pojawiać również w dodatkowych opisach oferty.
-  set(dt, i = i, j = "DPF", value = tak2TRUE(plv("Filtr cząstek stałych")))
+  set(oto, i = i, j = "DPF"     , value = tak2TRUE(plv("Filtr cząstek stałych")))
 
-  set(dt, i = i, j = "Damaged", value = tak2TRUE(plv("Uszkodzony")))
+  set(oto, i = i, j = "Damaged" , value = tak2TRUE(plv("Uszkodzony")))
 }
 
 processOffers <- function(otofiles) {
-  dt <- createRawOto(length(otofiles))
+  oto <- createRawOto(length(otofiles))
   for (i in seq_along(otofiles)) {
     if (i %% 10 == 0) {
       print(paste("processing", i, "th file."))
     }
 
-    f <- paste(OFFERSDIR, otofiles[i], sep = "")
+    file <- paste(OFFERSDIR, otofiles[i], sep = "")
     tryCatch(
-        processOffer(i, f, dt),
-        error   = printCondition(sprintf("ERROR WHEN PROCESSING %s: ", f)),
-        warning = printCondition(sprintf("WARNING WHEN PROCESSING %s: ", f)))
+        processOffer(i, file, oto),
+        error   = printCondition(sprintf("ERROR WHEN PROCESSING %s: "  , file)),
+        warning = printCondition(sprintf("WARNING WHEN PROCESSING %s: ", file)))
   }
-  dt
+  oto
 }
 
-## ## OFFERSDIR <- "offers/"
-## ## otofiles <- dir(OFFERSDIR)
+OFFERSDIR <- "offers/"
+## otofiles <- dir(OFFERSDIR)
 
-set.seed(1024L)
-sampleOtofiles <- sample(otofiles, size = 1e3)
+## set.seed(1024L)
+## sampleOtofiles <- sample(otofiles, size = 1e3)
 
 ## system.time(oto <- processOffers(sampleOtofiles))
 

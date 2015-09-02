@@ -31,7 +31,7 @@
 * DONE 09 Filtr cząstek stałych
   T/F
 
-* TODO 10 Uszkodzony
+* DONE 10 Uszkodzony
   T/F
 
 # DANE SPRZEDAJĄCEGO
