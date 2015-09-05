@@ -5,7 +5,7 @@ library(data.table)
 library(XML)
 library(kongRa)
 
-source("03_raw_oto.R")
+source("R/03_raw_oto.R")
 
 plistMap <- function(doc) {
   plist <- xpathSApply(doc, "//ul[@class='params-list clr']/li")
