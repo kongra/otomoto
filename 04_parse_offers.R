@@ -38,7 +38,8 @@ processOffer <- function(i, file, oto) {
   flv <- function(f) flist[[f]] %or% FALSE
 
   tak2TRUE    <- function(b) ifelse(b == "Tak", TRUE, NA)
-  tak2logical <- function(b) ifelse(b == "Tak", TRUE, FALSE)
+  tak2logical <- function(b) ifelse(b == "Tak", TRUE,
+                                    ifelse(b == 'Nie', FALSE, NA))
 
   set(oto, i = i, j = "Id"      , value = i)
   set(oto, i = i, j = "Brand"   , value = plv("Marka"))
@@ -74,10 +75,10 @@ processOffers <- function(otofiles) {
 }
 
 OFFERSDIR <- "offers/"
-## otofiles <- dir(OFFERSDIR)
+# otofiles <- dir(OFFERSDIR)
 
-## set.seed(1024L)
-## sampleOtofiles <- sample(otofiles, size = 1e3)
+# set.seed(1024L)
+# sampleOtofiles <- sample(otofiles, size = 1e3)
 
 ## system.time(oto <- processOffers(sampleOtofiles))
 
