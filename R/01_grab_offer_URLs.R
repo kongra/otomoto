@@ -2,6 +2,7 @@
 ## Created 2015-05-26
 
 library(XML)
+library(data.table)
 
 ## GRABBING THE NUMBER OF OFFER PAGES FOR BRANDS
 
@@ -134,6 +135,10 @@ brands <- c(
   "zuk"
 )
 
+hasNoOffers <- function(page) {
+  length(xpathSApply(page, "//div[@class='om-emptyinfo']")) != 0
+}
+
 brandsPagesCounts <- function() {
   counts <- integer(length(brands))
 
@@ -160,11 +165,7 @@ brandsPagesCounts <- function() {
   counts
 }
 
-hasNoOffers <- function(page) {
-  length (xpathSApply(page, "//div[@class='om-emptyinfo']")) != 0
-}
-
-brandsFrame = data_frame(brand = brands, pagesCount = brandsPagesCounts())
+brandsFrame = data.table(brand = brands, pagesCount = brandsPagesCounts())
 
 ## OFFER URLs FOR BRANDS
 
@@ -190,7 +191,7 @@ printBrandURLs <- function(brand, pages) {
 
 printOfferURLs <- function(brandsFrame) {
   frame <- filter(brandsFrame, brandsFrame$pagesCount != 0)
-  by(frame, 1:nrow(frame), function (row) {
+  by(frame, 1:nrow(frame), function(row) {
     printBrandURLs(row$brand, row$pagesCount)
   })
 }

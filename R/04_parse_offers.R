@@ -58,6 +58,9 @@ processOffer <- function(i, file, oto) {
   set(oto, i = i, j = "Damaged" , value = tak2TRUE(plv("Uszkodzony")))
 }
 
+OFFERSDIR <- "offers/"
+# otofiles <- dir(OFFERSDIR)
+
 processOffers <- function(otofiles) {
   oto <- createRawOto(length(otofiles))
   for (i in seq_along(otofiles)) {
@@ -73,9 +76,6 @@ processOffers <- function(otofiles) {
   }
   oto
 }
-
-OFFERSDIR <- "offers/"
-# otofiles <- dir(OFFERSDIR)
 
 # set.seed(1024L)
 # sampleOtofiles <- sample(otofiles, size = 1e3)
